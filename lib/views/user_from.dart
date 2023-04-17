@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../main1.dart';
-import '../main3.dart';
 
 class UserFromScreen extends StatefulWidget {
   const UserFromScreen({Key? key}) : super(key: key);
@@ -76,12 +75,12 @@ class _UserFromScreenState extends State<UserFromScreen> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     print("===>Validated");
-                    // Navigator.of(context).pushNamed('/second',
-                    //     arguments: 'Welcome to scond page');
-                    Navigator.push(
+                    Navigator.of(context)
+                        .pushNamed('/second', arguments: userName.text);
+                    /*   Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BlockMainpage()));
+                            builder: (context) => BlockMainpage()));*/
                     print(
                         "User Name ${userName.text}, Password ${password.text}");
                     Map userRequiredData = {

@@ -8,7 +8,14 @@ import 'models/user_model.dart';
 import 'repository/user_repository.dart';
 
 class BlockHomePage extends StatelessWidget {
-  const BlockHomePage({super.key, required String title});
+  final String Username;
+  final String Password;
+
+  BlockHomePage(
+      {super.key,
+      required this.Username,
+      required this.Password,
+      required String title});
 
   @override
   Widget build(BuildContext context) {
@@ -22,27 +29,55 @@ class BlockHomePage extends StatelessWidget {
           ),*/
         ],
         child: Scaffold(
-          appBar: AppBar(title: const Text('Bloc Pattern')),
-          body: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: "List one",
+          appBar: AppBar(title: const Text('Bloc Pattern List View')),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 15,
+                      bottom: 0,
+                      right: 0,
+                      top: 10), //apply padding to some sides only
+
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Username : ' + Username,
+                        style: TextStyle(fontSize: 20, color: Colors.black)),
+                  ),
                 ),
-              ),
-              Container(height: 300, child: blocBody()),
-              Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "List Two",
-                    ),
-                  )),
-              Container(
-                height: 300,
-                child: blocBody(),
-              ),
-            ],
+                /*  Text(
+                  Align(
+                    alignment: Alignment.topLeft,
+                  )
+                  'Username : ' + Username,
+                  style: TextStyle(fontSize: 20, color: Colors.green),
+                ),*/
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(
+                    'Listview One',
+                    style: TextStyle(fontSize: 20, color: Colors.green),
+                  ),
+                ),
+                Container(
+                    // height: MediaQuery.of(context).size.height / 1,
+                    height: 300,
+                    child: blocBody()),
+                Divider(),
+                Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Listview Two',
+                      style: TextStyle(fontSize: 20, color: Colors.green),
+                    )),
+                Container(
+                  height: 300,
+                  // height: MediaQuery.of(context).size.height / 1,
+                  child: blocBody(),
+                ),
+              ],
+            ),
           ),
         ));
   }

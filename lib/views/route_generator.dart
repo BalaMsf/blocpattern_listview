@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../main3.dart';
+
 class RouteGenerator {
   //Settings is the object received in the onGenerateRoute
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-      /*  case '/third':
+      case '/second':
         if (args is String) {
           return MaterialPageRoute(
-            builder: (_) => HomePage(),
+            builder: (_) => BlockMainpage(
+              Userdata: args,
+              password: args,
+            ),
           );
         }
-        return _errorRoute();*/
+        return _errorRoute();
 
       default:
         return _errorRoute();
